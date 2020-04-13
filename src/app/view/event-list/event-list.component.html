@@ -1,0 +1,44 @@
+
+
+
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Event Name</th>
+    <th scope="col">Date</th>
+    <th scope="col">Time {{length}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngIf="calenderDateStatus;else elseBlock">
+
+    <td colspan="4" class="alert alert-danger" style="text-align: center">
+      Events List is Empty
+    </td>
+  </tr>
+  <ng-template #elseBlock>
+    <tr *ngFor="let event of eventArray async" >
+
+      <th scope="row" *ngIf="(event.date == calendetDate)">{{event.eventId}}</th>
+      <td *ngIf="(event.date == calendetDate)">{{event.eventName}}</td>
+      <td *ngIf="(event.date == calendetDate)"> {{event.date}}</td>
+      <td *ngIf="(event.date == calendetDate)">{{event.time}}</td>
+      <td class="td-actions " *ngIf="(event.date == calendetDate)">
+        <button type="button" rel="tooltip" class="btn btn-info" (click)="updateEvents(event)">
+          <i class="far fa-edit"></i>
+        </button>
+      </td >
+      <td class="td-actions " *ngIf="(event.date == calendetDate)">
+        <button type="button" rel="tooltip" class="btn btn-danger" (click)="deletEevent(event.eventId)">
+          <i class="fas fa-times"></i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+
+
+
+  </tbody>
+</table>
