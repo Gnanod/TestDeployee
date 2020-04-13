@@ -102,7 +102,7 @@ export class EventListComponent implements OnInit {
 
     }
 
-    for (var i = 0; i < this.eventArray.length; i++) {
+    for (let i = 0; i < this.eventArray.length; i++) {
 
       if( this.calendetDate === this.eventArray[i].date){
         this.calenderDateStatus = false;
